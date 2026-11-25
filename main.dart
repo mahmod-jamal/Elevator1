@@ -67,11 +67,6 @@ class _ElevatorPageState extends State<ElevatorPage> {
     });
 
     _travelTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      //  if (!mounted) {
-      //   timer.cancel();
-      //   return;
-      //  }
-
       final destination = _destinationFloor;
       if (destination == null) {
         timer.cancel();
@@ -113,7 +108,6 @@ class _ElevatorPageState extends State<ElevatorPage> {
   void _scheduleDoorClose() {
     _doorTimer?.cancel();
     _doorTimer = Timer(const Duration(seconds: 3), () {
-      //if (mounted && !_isMoving) {
       if (!_isMoving) {
         setState(() => _doorsOpen = false);
       }
